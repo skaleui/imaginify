@@ -14,6 +14,9 @@ if(!cached) {
 }
 
 export const connectToDatabase = async () => {
+
+  console.log(MONGODB_URL);
+  
   if(cached.connection) {
     return cached.connection
   }
@@ -23,6 +26,8 @@ export const connectToDatabase = async () => {
       'Please define the MONGODB_URL environment variable'
     )
   }
+
+  try {
   cached.promise = cached.promise || 
       mongoose.connect(MONGODB_URL, { 
         dbName: 'imaginify', bufferCommands: false 
@@ -30,4 +35,9 @@ export const connectToDatabase = async () => {
   cached.connection = await cached.promise;
 
   return cached.connection;
+
+    } catch (error) {
+      console.error('Error connecting to database', error)
+      return null
+    }
 }  
