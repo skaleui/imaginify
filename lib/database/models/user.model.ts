@@ -6,8 +6,8 @@ const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: false, unique: true },
   photo: { type: String, required: false },
-  firstName: { type: String },
-  lastName: { type: String },
+  firstName: { type: String, requried:false },
+  lastName: { type: String, required:false },
   planId: { type: Number, default: 1 },
   creditBalance: { type: Number, default: 10},
 });
