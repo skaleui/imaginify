@@ -13,7 +13,7 @@ export function cn(...inputs: ClassValue[]) {
 export const handleError = (error: unknown) => {
   if(error instanceof Error) {
     console.error(error.message);
-    throw new Error(`Error: ${error.message}`);
+    // throw new Error(`Error: ${error.message}`);
   } else if(typeof error === 'string') {
     console.error(error);
     throw new Error(`Error: ${error}`);

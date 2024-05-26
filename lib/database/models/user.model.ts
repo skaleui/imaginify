@@ -8,10 +8,10 @@ const UserSchema = new Schema({
  photo: { type: String, required: false },
  firstName: { type: String, requried:false },
  lastName: { type: String, required:false },
- // planId: { type: Number, default: 1 },
- // creditBalance: { type: Number, default: 10},
+ planId: { type: Number, default: 1 },
+ creditBalance: { type: Number, default: 10},
 });
 
-const User = models?.user || model('User', UserSchema);
+const User = models?.User || model("User", UserSchema);
 
 export default User;
