@@ -38,6 +38,8 @@ export async function checkoutCredits(transaction : CheckoutTransactionParams) {
 
   });
 
+  redirect(session.url!);
+
   
 }
 
