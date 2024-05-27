@@ -8,6 +8,8 @@ https://cloud.mongodb.com/v2/65e6b4d224754937094599f1#/metrics/replicaSet/65e6b5
 
 https://dashboard.stripe.com/settings/user (skale.ui@gmail.com / nagpur25)
 
+https://console.cloudinary.com/settings (skale.ui@gmail.com / Cloudinary@94087)
+
 https://github.com/skaleui/imaginify
 https://github.com/adrianhajdin/ai_saas_app
 
