@@ -1,6 +1,7 @@
-import cloudinaryLib from 'cloudinary'
+//import cloudinaryLib from 'cloudinary'
+import { v2 as cloudinary } from "cloudinary"; 
 
-const cloudinary = cloudinaryLib.v2
+//const cloudinary = cloudinaryLib.v2
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,

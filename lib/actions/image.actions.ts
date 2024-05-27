@@ -6,7 +6,11 @@ import { connectToDatabase } from "../database/mongoose";
 import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
-import cloudinary from "../../app/cloudinary";
+import mongoose from "mongoose";
+import cloudinary from "../../cloudinary";
+// import { v2 as cloudinary } from "cloudinary"; 
+
+
 
 const populateUser = (query: any) => query.populate({
   path: 'author',
@@ -102,10 +106,20 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = "" } : {
   try {
     await connectToDatabase();
 
+
+    cloudinary.config({ 
+      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, 
+      api_key: process.env.CLOUDINARY_API_KEY, 
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: true 
+    });
+    
+    console.log(cloudinary.config().api_key, cloudinary.config().cloud_name);
+
     let expression = 'folder=imaginify';
 
     if(searchQuery) {
-      const newLocal = expression += ` AND ${searchQuery}`;
+      expression += ` AND ${searchQuery}`;
     }
 
     const { resources } = await cloudinary.search
